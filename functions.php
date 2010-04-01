@@ -48,7 +48,7 @@ function page_title($content='')
 function include_js($files='')
 {
   $js_link = '';
-  $js_root = get_template_directory_uri() . "/js";
+  $js_root = get_stylesheet_directory_uri() . "/js";
   
   if (is_array($files)) {
    for ($i=0; $i < count($files); $i++) { 
@@ -112,7 +112,7 @@ function include_js_lib($libs='')
 function include_css($files='')
 {
   $css_link = '';
-  $css_root = get_template_directory_uri() . "/css";
+  $css_root = get_stylesheet_directory_uri() . "/css";
   if (is_array($files)) {
    for ($i=0; $i < count($files); $i++) { 
      $css_link .= "<link rel='stylesheet'";
@@ -138,7 +138,7 @@ function include_css($files='')
 
 function image($filename='',$attrs='')
 {
-  $img_path = get_template_directory_uri() . "/images" . "/${filename}";
+  $img_path = get_stylesheet_directory_uri() . "/images" . "/${filename}";
   $attrs = $attrs == '' ? "src='${img_path}'" : ("src='${img_path}' " . $attrs);
   output_single_tag('img',$attrs);
 }
@@ -200,5 +200,3 @@ function domain()
 }
 
 ?>
-
-
