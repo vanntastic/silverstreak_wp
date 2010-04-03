@@ -98,3 +98,4 @@ USAGE
         include_css('app');
         // including multiple css files
         include_css(array('app','print'))      
+
