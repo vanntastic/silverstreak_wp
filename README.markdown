@@ -95,7 +95,9 @@ Includes a css file from the css folder.
 
 USAGE
 
+        // include a single css file
         include_css('app');
         // including multiple css files
         include_css(array('app','print'))      
-
+        // include the 960 css framework
+        include_css('960')

@@ -101,13 +101,18 @@ function include_js_lib($libs='')
 	 you can pass either a string or array of files... and it should
    include them all
    EXAMPLE:
-   for multiple files
-   include_css(array('default','reset'));
-   <link href='css/default.css' ...
-   <link href='css/reset.css' ...
-   for single files
-   include_css('reset');
-   <link href='css/reset.css' ... */
+     for multiple files
+     include_css(array('default','reset'));
+     # <link href='css/default.css' ...
+     # <link href='css/reset.css' ...
+     # for single files
+     include_css('reset');
+     # <link href='css/reset.css' ... 
+     # for 960 css framework
+     include_css('960')
+     # for 960 css framework with 24 columns
+     include_css('960-24')
+*/
 
 function include_css($files='')
 {
@@ -119,6 +124,15 @@ function include_css($files='')
      $css_link .= " href='${css_root}/" . $files[$i] . ".css' type='text/css'";
      $css_link .= " media='screen' />\n";
    }
+  } elseif ($files == "960" || $files == "960-24") {
+     $ns_files = array('reset','text');
+     $cols_type = $files == "960-24" ? "960_24_col" : "960";
+     array_push($ns_files, $cols_type);
+     for ($i=0; $i < count($ns_files); $i++) { 
+       $css_link .= "<link rel='stylesheet'";
+       $css_link .= " href='${css_root}/960/code/css/" . $ns_files[$i] . ".css' type='text/css'";
+       $css_link .= " media='screen' />\n";
+     }
   } else {
     $css_link .= "<link rel='stylesheet'";
     $css_link .= " href='${css_root}/" . $files . ".css' type='text/css' media='screen' />\n";
