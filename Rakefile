@@ -12,6 +12,8 @@ namespace :ss do
       system("mkdir -p #{File.join(theme_path, 'css')}")
       system("mkdir -p #{File.join(theme_path, 'js')}")
       system("rsync -aC js/* #{File.join(theme_path, 'js')}")
+      system("cp -R css/* #{File.join(theme_path, 'css')}")
+      system("cp .gitmodules #{File.join(theme_path, ".gitmodules")}")
       system("touch #{File.join(theme_path, 'functions.php')}")
       
       File.open(File.join(theme_path, "style.css"), "w+") do |file|
