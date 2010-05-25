@@ -17,7 +17,8 @@ remove_action( 'wp_head', 'wp_print_head_scripts', 9);
 function page_title($content='')
 {
    $title_content = '';
-   if ( is_single() ) { single_post_title(); 
+   if ( is_single() ) { 
+     $title_content = single_post_title(); 
    } elseif ( is_home() ) { 
       $title_content = bloginfo('name'); print ' | '; bloginfo('description');
    } elseif ( is_page() ) { 
@@ -30,7 +31,7 @@ function page_title($content='')
       $title_content = bloginfo('name'); wp_title('|');
    }
    
-   echo "${content} : ${title_content}";
+   echo "${title_content} : ${content}";
 }
 
 /* links to the js files in your javascripts directory
